@@ -41,10 +41,20 @@ else {
 // echo "<br>";
 //Affichage mot de passe
 
-if (isset($_POST['mot_de_passe'])&& !empty($_POST['mot_de_passe'])) {
+// if (isset($_POST['mot_de_passe'])&& !empty($_POST['mot_de_passe'])) {
+//     echo "mdp= ".$_POST['mot_de_passe'];
+// } else {
+//     echo "Mdp inconnu";
+// }
+// echo "<br>";
+//Affichage mot de passe vérifié
+$mot_de_passe=trim($_POST['mot_de_passe']);
+$motif='/^[a-z][a-z0-9_#*$]{3,}/i';
+if (preg_match($motif,$mot_de_passe)==0) {
+    echo "votre code n'est pas assez fort.";
+}
+else {
     echo "mdp= ".$_POST['mot_de_passe'];
-} else {
-    echo "Mdp inconnu";
 }
 echo "<br>";
 //Affichage sexe
