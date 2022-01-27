@@ -19,13 +19,26 @@ if (isset($_POST['saisie[prenom]'])&& !empty($_POST['saisie[prenom]'])) {
 // } 
 
 //--- Début Exercice
-//Affichage Nom
-if (isset($_POST['nom'])&& !empty($_POST['nom'])) {
-    echo "nom= ".$_POST['nom'];
-} else {
-    echo "Nom inconnu";
+//Affichage Nom vérifié
+$nom=trim($_POST['nom']);
+if ($nom=='') {
+    echo "Aucune données saisies";
 }
-echo "<br>";
+elseif (strlen($nom)>19) {
+    echo "Votre nom est trop long <br>";
+}
+else {
+    echo "nom= ".$nom."<br>";
+}
+
+    
+// if (isset($_POST['nom'])&& !empty($_POST['nom'])) {
+//     $nom=trim($_POST['nom']);
+//     echo "nom= ".$nom;
+// } else {
+//     echo "Nom inconnu";
+// }
+// echo "<br>";
 //Affichage mot de passe
 
 if (isset($_POST['mot_de_passe'])&& !empty($_POST['mot_de_passe'])) {
